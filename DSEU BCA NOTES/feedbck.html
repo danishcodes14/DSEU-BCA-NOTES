@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Feedback</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:
+    radial-gradient(circle at top,
+    #0f2d5f 0%,
+    #09152f 35%,
+    #050b18 75%,
+    #02050d 100%);
+  color:#fff;
+}
+
+/* CARD */
+.card{
+  width:450px;
+  padding:30px;
+  border-radius:20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border:1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5),
+  0 0 25px rgba(0, 150, 255, 0.15);
+}
+
+/* TITLE */
+.title{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.title i{
+  color:#ffcc00;
+  font-size:22px;
+}
+
+.title h2{
+  margin-top:8px;
+}
+
+.title-divider{
+  width: 80px;
+  height: 4px;
+  margin: 8px auto 15px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    #ffcc00,
+    transparent
+  );
+
+  position: relative;
+}
+
+/* center dot */
+.title-divider::after{
+  content: "";
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 6px;
+  height: 6px;
+
+  background: #ffcc00;
+  border-radius: 50%;
+
+  box-shadow: 0 0 8px rgba(255,204,0,0.8);
+}
+
+/* SUBTEXT */
+.subtext{
+  text-align:center;
+  font-size:13px;
+  opacity:0.8;
+  margin-bottom:20px;
+}
+
+/* INPUT BOX */
+.input-container{
+  position: relative;
+  transition: 0.3s;
+  margin: 10px 0;
+}
+
+/* ICON */
+.input-container i{
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00eaff; /* contact page jaisa cyan */
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* INPUT + SELECT + TEXTAREA COMMON */
+.input-container input,
+.input-container select,
+.input-container textarea{
+  width: 100%;
+  padding: 14px 15px 14px 45px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,234,255,0.4);
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+
+  box-shadow: 
+    0 0 6px rgba(0,234,255,0.25),
+    inset 0 0 0 rgba(0,234,255,0.1);
+
+  transition: all 0.3s ease;
+}
+
+/* FOCUS EFFECT (premium glow) */
+.input-container input:focus,
+.input-container select:focus,
+.input-container textarea:focus{
+  border-color: #00eaff;
+
+  box-shadow:
+    0 0 12px rgba(0,234,255,0.6),
+    inset 0 0 10px rgba(0,234,255,0.25);
+}
+
+.input-container:hover input,
+.input-container:hover select,
+.input-container:hover textarea {
+  box-shadow: 0 0 10px rgba(0,234,255,0.35),
+    inset 0 0 8px rgba(0,234,255,0.15);
+
+}
+
+
+/* TEXTAREA HEIGHT */
+.my-textarea {
+  height: 180 !important;
+  resize: none;
+  padding-top: 18px;
+  line-height: 1.5;
+
+}
+/* TEXTAREA ICON FIX */
+.textarea-box i{
+  top: 20px;
+  transform: none;
+}
+
+/* SELECT DROPDOWN FIX */
+select{
+  appearance: none;
+  cursor: pointer;
+}
+
+/* REMOVE WHITE DROPDOWN BG (IMPORTANT) */
+select option{
+  background: #0b1a2a;
+  color: #fff;
+}
+
+/* DROPDOWN */
+select{
+  appearance:none;
+}
+
+/* SECTION TITLE */
+.section-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-size: 14px;
+  color: #fff;
+  margin: 20px 0;
+}
+
+/* lines */
+.section-title span{
+  flex: 1;
+  height: 2px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    #ffcc00,
+    transparent
+  );
+
+  opacity: 0.6;
+}
+
+.section-title span {
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+}
+
+/* EMOJIS */
+.emojis{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.emoji{
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.35),   /* dark depth */
+    0 0 8px rgba(255, 204, 0, 0.15);  /* soft glow */
+
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.emoji:hover{
+    transform: translateY(-4PX) scale(1.05);
+    color: #ffcc00;
+
+  text-shadow: 
+    0 0 5px rgba(255,255,255,0.6),
+    0 0 18px rgba(255,204,0,0.8),
+    0 0 25px rgba(255,204,0,1);
+
+    box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(255, 204, 0, 0.25);
+
+    border: 1px solid #ffcc00;
+}
+
+.emoji.active{
+  border-color: #ffcc00;
+
+  transform: scale(1.2);
+   text-shadow: 
+    0 0 10px rgba(255,255,255,0.8),
+    0 0 25px rgba(255,204,0,1),
+    0 0 35px rgba(255,204,0,1);
+
+    box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.6),
+    0 0 18px rgba(255, 204, 0, 0.5);
+
+     animation: bounceGlow 0.4s ease;
+}
+
+.emoji i {
+  font-size: 26px;
+  color: #ffcc00;
+
+  transition: 0.3s;
+}
+
+.emoji:hover i {
+  transform: scale(1.2);
+
+  color: #ffcc00;
+
+}
+
+.emoji.active i {
+  color: #ffcc00;
+  animation: glowPulse 0.6s ease;
+
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+}
+
+.emoji::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 10%;
+  width: 80%;
+  height: 10px;
+  background: rgba(0,0,0,0.4);
+  filter: blur(8px);
+  border-radius: 50%;
+  z-index: -1;
+}
+@keyframes bounceGlow {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.25);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow:
+      0 0 5px rgba(255, 204, 0, 0.5),
+      0 0 10px rgba(255, 204, 0, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 15px rgba(255, 204, 0, 1),
+      0 0 30px rgba(255, 204, 0, 0.8);
+  }
+  100% {
+    text-shadow:
+      0 0 8px rgba(255, 204, 0, 0.7),
+      0 0 20px rgba(255, 204, 0, 0.6);
+  }
+}
+
+
+/* BUTTON */
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(135deg,#ffcc00,#ffaa00);
+  box-shadow: 0 8px 20px rgba(255, 204, 0, 0.3),
+  inset 0 -px 5px rgba(0, 0, 0, 0.2);
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{   
+  transform:scale(1.02);
+}
+.heading{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:28px;
+  font-weight:600;
+}
+
+.heading i{
+  color:#ffcc00;
+}
+
+.heart {
+  margin-left: 4px;
+  font-size: 16px;
+}
+
+/* BACKGROUND OVERLAY */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+/* SHOW CLASS */
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* CARD */
+.modal-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  width: 320px;
+
+  border: 1px solid rgba(255, 204, 0, 0.4);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.6),
+    0 0 15px rgba(255,204,0,0.3);
+
+  animation: popup 0.4s ease;
+}
+
+/* TEXT */
+.modal-card h2 {
+  color: #ffcc00;
+  margin: 10px 0;
+}
+
+.modal-card p {
+  color: #fff;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.modal-card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ffcc00, #ffaa00);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* POPUP ANIMATION */
+@keyframes popup {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.icon i {
+  font-size: 40px;
+  color: #ffcc00;
+
+  text-shadow:
+    0 0 4px rgba(255,204,0,0.5),
+    0 0 8px rgba(255,204,0,0.3);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="title">
+    <h2><i class="fa-solid fa-comment-dots"></i>  Feedback</h2>
+    <div class="title-divider"></div>
+  </div>
+
+  <div class="subtext">
+    We'd love to hear your thoughts and suggestions!
+    <i class="fa-solid fa-heart"></i>
+  </div>
+
+  <!-- NAME -->
+  <div class="input-container">
+    <i class="fa-solid fa-user"></i>
+    <input type="text" class="input-box" placeholder="Your Name">
+  </div>
+
+  <!-- BRANCH -->
+  <div class="input-container">
+  <i class="fa-solid fa-building-columns"></i>
+  <select class="input-box">
+    <option disabled selected>Branch</option>
+    <option>BCA</option>
+  </select>
+</div>
+
+  <div class="section-title">
+    <span></span>
+    How was your experience?
+  <span></span>
+  </div>
+
+  <!-- EMOJIS -->
+  <div class="emojis">
+  <div class="emoji"><i class="fa-solid fa-face-angry"></i></div>
+  <div class="emoji"><i class="fa-solid fa-face-frown"></i></div>
+  <div class="emoji"><i class="fa-solid fa-face-meh"></i></div>
+  <div class="emoji"><i class="fa-solid fa-face-smile"></i></div>
+  <div class="emoji"><i class="fa-solid fa-face-laugh"></i></div>
+</div>
+
+  <!-- TEXTAREA -->
+  <div class="input-container">
+  <i class="fa-solid fa-pen"></i>
+  <textarea class="input-box my-textarea" placeholder="Share your thoughts..."></textarea>
+</div>
+
+  <!-- BUTTON -->
+  <button onclick="showModal()"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+
+</div>
+
+<div id="thankYouModal" class="modal">
+  <div class="modal-card">
+    <div class="icon">
+      <i class="fa-solid fa-face-smile"></i>
+    </div>
+    <h2>Thank You!</h2>
+    <p>Your feedback has been submitted successfully.</p>
+    <button onclick="closeModal()">OK</button>
+  </div>
+</div>
+
+<script>
+
+const emojis = document.querySelectorAll(".emoji");
+
+emojis.forEach(e => {
+  e.addEventListener("click", () => {
+    emojis.forEach(el => el.classList.remove("active"));
+
+    // restart animation trick
+    e.classList.remove("active");
+    void e.offsetWidth; // reflow hack
+    e.classList.add("active");
+  });
+});
+
+function showModal() {
+  document.getElementById("thankYouModal").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("thankYouModal").classList.remove("show");
+}
+
+document.querySelector("form").addEventListener("submit", function(e) {
+  e.preventDefault(); // reload rokega
+  showModal();
+});
+
+</script>
+</body>
+</html>

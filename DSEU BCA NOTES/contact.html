@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+    background:
+    radial-gradient(circle at top,
+    #0f2d5f 0%,
+    #09152f 35%,
+    #050b18 75%,
+    #02050d 100%);
+
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+*{
+    box-sizing: border-box;
+}
+/* MAIN CONTAINER */
+.contact-container {
+    width: 75%;
+    margin: 60px auto;
+    display: flex;
+    gap: 30px;
+    position: relative;
+}
+.contact-left,
+.contact-right{
+    flex: 1;
+}
+.contact-container::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: 50%;
+    width: 2px;
+
+    background: linear-gradient(to bottom,
+        transparent,
+        rgba(0,200,255,0.5),
+        transparent
+    );
+
+    box-shadow: 0 0 10px rgba(0,200,255,0.5);
+}
+
+/* LEFT */
+.contact-left {
+    flex: 1;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10 30px rgba(0,0,0,0.5);
+}
+.contact-left h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+}
+.contact-left h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: -8px;
+    width: 60px;
+    height: 4px;
+    background: #ffcc00;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ffcc00;
+}
+.contact-left h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right,
+        transparent 0%,
+        #ffcc00 20%,
+        #ffcc00 80%,
+        transparent 100%);
+    
+    border-radius: 5px;
+}
+
+.contact-left h1 span::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+
+    width: 8px;
+    height: 8px;
+    background: #ffcc00;
+    border-radius: 50%;
+}
+
+.contact-left h1 span {
+    color: #ffcc00;
+}
+
+.contact-left h1 i {
+    color: #00cfff;
+}
+
+.contact-left p {
+    color: rgba(255,255,255,0.8);
+}
+
+/* INFO BOX */
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 12px;
+
+    /* 👇 MAGIC START */
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 0 15px rgba(0,150,255,0.15);
+
+    transition: 0.3s;
+}
+
+.info-box i {
+    font-size: 18px;
+    color: #00cfff;
+    text-shadow: 0 0 10px rgba(0,200,255,0.8);
+}
+.info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,150,255,0.3);
+    border: 1px solid rgba(0,200,255,0.6);
+}
+.info-box h3 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.info-box p {
+    margin: 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+}
+/* QUOTE */
+.quote {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.05);
+    text-align: center;
+    font-weight: bold;
+    opacity: 0.9;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.2),0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.quote:hover {
+    box-shadow: 0 0 30px rgba(255, 200, 0, 0.7);
+}
+.quote span {
+    color: #ffcc00;
+    font-size: 20px;
+}
+
+/* RIGHT */
+.contact-right {
+    flex-direction: column;
+    display: flex;
+    gap: 15px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10 30px rgba(0,0,0,0.5);
+    
+}
+.contact-right h2 {
+    position: relative;
+    text-align: center;
+}
+
+/* LINE */
+.contact-right h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: -8px;
+    width: 60px;
+    height: 4px;
+    background: #ffcc00;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ffcc00;
+}
+.contact-right h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right,
+        transparent 0%,
+        #ffcc00 20%,
+        #ffcc00 80%,
+        transparent 100%);
+    
+    border-radius: 5px;
+}
+
+/* DOT */
+.contact-right h2::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    background: #ffcc00;
+
+    box-shadow: 
+        0 0 8px rgba(255, 204, 0, 0.8),
+        0 0 15px rgba(255, 204, 0, 0.5);
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-box i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00cfff;
+}
+
+.input-box input {
+    padding-left: 35px;
+}
+.input-box input,
+textarea {
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.2);
+    transition: 0.3s;
+}
+
+.input-box input:focus,
+textarea:focus {
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.6);
+}
+
+.input-box textarea {
+    padding-left: 35px;
+}
+
+.input-box textarea + i {
+    top: 20px; /* instead of center */
+    transform: none;
+}
+
+/* INPUTS */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* BUTTON GROUP */
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.button-group button {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+    color: white;
+    cursor: pointer;
+}
+.button-group button:hover {
+    background: rgba(0, 200, 255, 0.2);
+    transform: translate(-3px);
+}
+
+/* SEND BUTTON */
+.send-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(to right, #ffcc00, #ffaa00);
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 0 15px rgba(255, 200, 0, 0.4);
+}
+.send-btn:hover {
+    transform: scale(1.03);
+}
+.send-btn i {
+    margin-right: 5px;
+}
+.reason-container {
+    display: flex;
+    align-items: center;             
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.reason-container {
+    display: flex;              /* ⭐ grid hatao */
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.reason-box {
+    width: 90px;                /* ⭐ chhota size */
+    height: 90px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0,0,0, 0.4),
+          inset 0 0 10px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,204,0,0.2);
+
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.reason-box:hover {
+    transform: translateY(-6px);
+
+    border-color: #ffcc00;
+
+    background: rgba(255, 204, 0, 0.08);
+
+     box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(255, 204, 0, 0.6);
+}
+.reason-box.active {
+    border-color: #ffcc00;
+
+    background: rgba(255, 204, 0, 0.12);
+    transform: scale(0.95);
+
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.7),
+        0 0 50px rgba(255, 204, 0, 0.4);
+}
+
+.reason-box i {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #ffcc00;
+}
+
+.reason-box p {
+    font-size: 14px;
+    margin: 0;
+}
+.reason-title {
+    margin: 6px 0;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="contact-container">
+
+    <!-- LEFT -->
+    <div class="contact-left">
+        <h1>Contact <span>Us</span> <i class="fa-solid fa-phone"></i></h1>
+
+        <p>We’d love to hear from you! Whether you have a question, suggestion, or just want to say hello, feel free to reach out.</p>
+
+        <div class="info-box">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+                <h3>Email</h3>
+                <p>dseuresources@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+                <h3>Branch</h3>
+                <p>BCA</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+                <h3>Response Time</h3>
+                <p>We usually reply within 24 hours</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <i class="fa-solid fa-heart"></i>
+            <div>
+                <h3>We Value You</h3>
+                <p>Your feedback helps us improve.</p>
+            </div>
+        </div>
+
+        <div class="quote">
+            <span>“</span>
+            Your thoughts matter to us. Let's build something great together!
+            <span>”</span>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="contact-right">
+        <h2>Send Us a Message</h2>
+
+        <div class="input-box">
+  <i class="fas fa-user"></i>
+  <input type="text" placeholder="Your Name">
+        </div>
+        <div class="input-box">
+  <i class="fas fa-envelope"></i>
+  <input type="email" placeholder="Your Email">
+</div>
+
+        <div class="input-box">
+  <i class="fas fa-pen"></i>
+  <textarea placeholder="Write your message..."></textarea>
+</div>
+
+        <p class="reason-title">Reason for Contact</p>
+        <div class="reason-container">
+
+      <div class="reason-box">
+  <i class="fas fa-comment"></i>
+  <p>General</p>
+</div>
+
+<div class="reason-box">
+  <i class="fas fa-lightbulb"></i>
+  <p>Suggestion</p>
+</div>
+
+<div class="reason-box">
+  <i class="fas fa-exclamation-triangle"></i>
+  <p>Issue</p>
+</div>
+
+<div class="reason-box">
+  <i class="fas fa-ellipsis-h"></i>
+  <p>Other</p>
+</div>
+</div>
+
+        <button class="send-btn">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+    </div>
+
+</div>
+<script>
+const boxes = document.querySelectorAll('.reason-box');
+
+boxes.forEach(box => {
+    box.addEventListener('click', () => {
+
+        // sabka active remove
+        boxes.forEach(b => b.classList.remove('active'));
+
+        // clicked pe active add
+        box.classList.add('active');
+    });
+});
+</script>
+</body>
+</html>

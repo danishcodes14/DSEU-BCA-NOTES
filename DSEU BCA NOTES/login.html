@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+body{
+    background:
+    radial-gradient(circle at top,
+    #0f2d5f 0%,
+    #09152f 35%,
+    #050b18 75%,
+    #02050d 100%);
+
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+*{
+    box-sizing: border-box;
+}
+body::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(250,204,21,0.3), transparent 70%);
+    top: 50px;
+    right: 50px;
+    filter: blur(80px);
+    z-index: -1;
+}
+
+.login-container {
+    position: relative;
+    z-index: 1;
+}
+.subtitle {
+    opacity: 0.8;
+    font-size: 14px;
+    letter-spacing: 0.5;
+}
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.login-box {
+    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    color: white;
+}
+
+.login-icon {
+    font-size: 30px;
+    color: #facc15;
+    margin-bottom: 10px;
+}
+
+.login-box h2 {
+    margin: 10px 0;
+}
+
+.login-box p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.input-box i {
+    color: #ccc;
+}
+
+.input-box input {
+    outline: none;
+    background: transparent;
+    color: white;
+    width: 100%;
+}
+
+.input-box input::placeholder {
+    color: #aaa;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    
+    background: linear-gradient(135deg, #facc15, #fbbf24);
+    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
+    color: #111;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(250, 204, 21, 0.7);
+}
+.login-btn:active {
+    transform: scale(0.97);
+}
+
+.extra {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.extra span {
+    color: #facc15;
+    cursor: pointer;
+}
+
+.forgot {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #facc15;
+    cursor: pointer;
+}
+.input-box {
+    position: relative;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* icon styling */
+.input-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #facc15;
+}
+
+/* hover */
+.input-box input:hover {
+    border-color: #facc15;
+    background: rgba(250,204,21,0.08);
+}
+
+/* focus */
+.input-box input:focus {
+    border-color: #facc15;
+    background: rgba(250,204,21,0.12);
+    box-shadow: 0 0 10px rgba(250,204,21,0.3);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-box">
+
+        <div class="login-icon">
+            <i class="fa-solid fa-lock"></i>
+        </div>
+
+        <h2>Login</h2>
+        <p class="subtitle"> Welcome Back! Please login to continue.</p>
+
+        <div class="input-box">
+    <i class="fa-solid fa-user"></i>
+    <input type="text" placeholder="Username">
+</div>
+
+<div class="input-box">
+    <i class="fa-solid fa-lock"></i>
+    <input type="password" placeholder="Password">
+</div>
+
+        <button class="login-btn">Login →</button>
+
+        <p class="extra">
+            Don't have an account? <span>Sign Up</span>
+        </p>
+
+        <p class="forgot">Forgot Password?</p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
